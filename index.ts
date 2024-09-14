@@ -67,9 +67,9 @@ const deploymentIds = await getDeploymentIds();
 for (const deploymentId of deploymentIds) {
   await restartDeployment(deploymentId);
 }
-/*
+
 cron.schedule("0 0 * * *", async () => {
   for (const deploymentId of deploymentIds) {
     await restartDeployment(deploymentId);
   }
-});*/
+});
