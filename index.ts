@@ -63,6 +63,7 @@ async function restartDeployment(deploymentId: string) {
 }
 
 cron.schedule("0 0 * * *", async () => {
+  console.log("Starting");
   const deploymentIds = await getDeploymentIds();
   for (const deploymentId of deploymentIds) {
     console.log("Restarting " + deploymentId);
