@@ -60,12 +60,13 @@ async function restartDeployment(deploymentId: string) {
     }),
   });
   const result = await response.json();
-  console.log(result);
 }
 
 cron.schedule("0 0 * * *", async () => {
   const deploymentIds = await getDeploymentIds();
   for (const deploymentId of deploymentIds) {
+    console.log("Restarting " + deploymentId);
     await restartDeployment(deploymentId);
   }
+  console.log("Done");
 });
